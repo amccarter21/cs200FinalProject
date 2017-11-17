@@ -96,19 +96,13 @@ public class Quarterback extends Offense{
    String qb_stats_format = "%20s %10s %10s %10s %10s %10s %10s %10s %10s %10s %n";
    public void printPlayerHeader(){
        System.out.print("\n");
-       System.out.format(player_title_position_format, "Quarterback" );
+       System.out.format(player_title_position_format, "Quaterback" );
        System.out.print("\n");
        System.out.format(qb_stats_format, "Name", "CMP", "ATT", "YDS", "CMP%", "AVG", "TD", "LNG", "INT", "RAT");
    }
-   public void printPhillyHeader(){
-        System.out.print("\n \n");
-        System.out.format(header_title_format,"Philadelphia Eagles 2017 Offense");
-        System.out.print("\n");
-        System.out.format(player_data_format, "Number", "Name", "Position", "Height", "Weight", "Age", "Seasons", "College" );
-    }
      @Override
     public void printPlayerStats(){        
         System.out.format(qb_stats_format, this.name, this.completions, this.attempts, this.yards, this.completion_percent, this.average, this.longest, this.touchdowns, this.interceptions, this.rating);
-        
+        System.out.print("\n");
     }
 }

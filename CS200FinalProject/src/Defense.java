@@ -1,10 +1,4 @@
-/*
-                   DEFENSE PLAYER SUPER CLASS
- 
- This class contains the variable declaration, instantiation, 
- get set methods, and print info for the player being printed
- Player data is extended from subclass Offense
-*/
+
 public class Defense {
     int number;
     String name;

@@ -39,9 +39,4 @@ public class DLine extends Defense {
     public void printPlayerStats(){
         super.printPlayerStats();
     }
-    
-    
-    
-    
-    
 }

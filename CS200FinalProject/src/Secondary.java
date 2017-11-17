@@ -1,13 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author hans8
- */
 public class Secondary extends Defense{
     public Secondary(int number_,String name_, String position_, int height_, int weight_,int age_, int experience_, String college_){
        
@@ -28,7 +19,7 @@ public class Secondary extends Defense{
     public void printHeader(){
         
         System.out.print("\n");
-        System.out.format(player_title_position_format, "Linebackers" );
+        System.out.format(player_title_position_format, "Secondary" );
         System.out.print("\n");
         System.out.format(player_stats_header, "Name", "SOLO", "AST", "TOT", "SACK", "YDSL", "TLOSS", "PD", "INT", "YDS", "LONG", "TD", "FF", "REC", "TD", "BK");
     }

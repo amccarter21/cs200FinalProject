@@ -65,7 +65,6 @@ public class WideReceiver extends Offense{
     }
     String wr_format = "%20s %10s %10s %10s %10s %10s %10s %n";
     public void printWRHeader(){
-        System.out.print("\n");
         System.out.format(player_title_position_format, "Wide Receivers" );
         System.out.print("\n");
         System.out.format(wr_format, "Name", "REC", "TGTS", "YDS", "AVG", "LNG", "TD");
