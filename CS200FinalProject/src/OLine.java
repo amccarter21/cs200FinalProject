@@ -1,4 +1,9 @@
-
+/*
+                   OLine Superclass 
+ 
+This class contains the variable declaration, instantiation, 
+ get set methods, and print info for the player being printed
+*/
 public class OLine extends Offense {
      int penalties;
      int penalty_yards;
