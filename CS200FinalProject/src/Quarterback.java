@@ -100,6 +100,7 @@ public class Quarterback extends Offense{
        System.out.print("\n");
        System.out.format(qb_stats_format, "Name", "CMP", "ATT", "YDS", "CMP%", "AVG", "TD", "LNG", "INT", "RAT");
    }
+   @Override
    public void printPhillyHeader(){
         System.out.print("\n \n");
         System.out.format(header_title_format,"Philadelphia Eagles 2017 Offense");

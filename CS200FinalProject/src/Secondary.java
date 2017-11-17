@@ -28,7 +28,7 @@ public class Secondary extends Defense{
     public void printHeader(){
         
         System.out.print("\n");
-        System.out.format(player_title_position_format, "Linebackers" );
+        System.out.format(player_title_position_format, "Secondary" );
         System.out.print("\n");
         System.out.format(player_stats_header, "Name", "SOLO", "AST", "TOT", "SACK", "YDSL", "TLOSS", "PD", "INT", "YDS", "LONG", "TD", "FF", "REC", "TD", "BK");
     }
