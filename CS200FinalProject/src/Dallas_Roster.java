@@ -16,7 +16,7 @@ public class Dallas_Roster {
     public void runDallasRoster(){
     
     Offense o = new Offense();
-    
+    Defense d = new Defense();
     // This is the offense player data
     Quarterback qb = new Quarterback(4, "Dak Prescott", "QB", 74, 238, 24, 2, "Mississippi State");
     RunningBack rb = new RunningBack(21, "Ezekiel Elliot", "RB", 72, 228, 22, 2, "Ohio State");
@@ -41,6 +41,32 @@ public class Dallas_Roster {
     OLine g_stats = new OLine ("J Cooper", 3, 30, 0, 0, 0, 3);
     OLine g2_stats = new OLine("Z Martin", 0, 0, 1, 7, 0, 0);
     OLine c_stats = new OLine ("T Frederick", 2, 20, 0, 0, 0, 2);
+    
+    // THis is the Defense player stats
+    Secondary cb = new Secondary(30, "Anthony Brown", "CB", 71, 196, 23, 2, "Purdue");
+       Secondary cb_stats = new Secondary ("Anthony Brown", 32, 6, 0, 0, 2, 4, 1, 0, 0, 0, 0, 0, 0, 0);
+       Secondary s = new Secondary (31, "Byron Jones", "S", 72, 205, 25, 3, "Connecticut");
+       Secondary s_stats = new Secondary ("Byron Jones", 34, 16, 0, 0, 4, 4, 1, 21, 21, 1, 0, 0, 0, 0 );
+       Secondary s1 = new Secondary (38, "Jeff Heath", "S", 73, 212, 26, 5, "Saginaw Valley");
+       Secondary s1_stats = new Secondary ("Jeff Heath", 35, 5, 0, 0, 1, 2, 1, 3, 3, 0, 2, 0, 0, 0 );
+       Secondary cb1 = new Secondary(32, "Orlando Scandrick", "CB", 70, 196, 30, 10, "Boise State");
+       Secondary cb1_stats = new Secondary("Orlando Scandrick", 25, 5, 0, 0, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0);
+       
+       Linebackers lb = new Linebackers(50, "Sean Lee", "LB", 74, 245, 31, 8, "Penn State");
+       Linebackers lb_stats = new Linebackers("Sean Lee", 41, 11, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0 );
+       Linebackers de = new Linebackers (97, "Taco Charlton", "DE", 77, 270, 23, 0, "Michigan");
+       Linebackers de_stats = new Linebackers ("Taco Charlton", 5, 2, 1, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 );
+       Linebackers lb1 = new Linebackers(54, "Jaylon Smith", "LB", 74, 245, 22, 1, "Notre Dame");
+       Linebackers lb1_stats = new Linebackers("Jaylon Smith", 30, 24, 1, 13, 1, 1, 0, 0, 0, 0, 2, 0, 0, 0);
+       
+       DLine de1 = new DLine(98, "Tyrone Crawford", "DE", 76, 290, 27, 6, "Boise State");
+       DLine de1_stats = new DLine("Tyrone Crawford", 10, 5, 4, 27, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1 );
+       DLine dt = new DLine(95, "David Irving", "DT", 79, 290, 24, 3, "Iowa State");
+       DLine dt_stats = new DLine("David Irving", 12, 7, 6, 43, 3, 4, 0, 0, 0, 0, 1, 0, 0, 0);
+       DLine de2 = new DLine (90, "DeMarcus Lawrence", "DE", 75, 265, 25, 4, "Boise State");
+       DLine de2_stats = new DLine("DeMarcus Lawrence", 22, 15, 11, 126, 2, 0, 0, 0, 0, 0, 3, 2, 0, 0);
+       DLine dt1 =new DLine (96, "Maliek Collins", "DT", 74, 308, 22, 2, "Nebraska");
+       DLine dt1_stats = new DLine("Maliek Collins",8, 7, 3, 15, 2, 0, 0, 0, 0, 0, 0, 1, 0, 0);
     
 // THis is the print Info for the Offense Player Data
     o.printHeader();
@@ -77,6 +103,39 @@ public class Dallas_Roster {
     g_stats.printPlayerStats();
     g2_stats.printPlayerStats();
     c_stats.printPlayerStats();
+    
+    
+    d.printHeader();
+    cb.printInfo();
+    cb1.printInfo();
+    s.printInfo();
+    s1.printInfo();
+    lb.printInfo();
+    lb1.printInfo();
+    de.printInfo();
+    de1.printInfo();
+    de2.printInfo();
+    dt.printInfo();
+    dt1.printInfo();
+    
+    cb_stats.printHeader();
+    cb_stats.printPlayerStats();
+    cb1_stats.printPlayerStats();
+    s_stats.printPlayerStats();
+    s1_stats.printPlayerStats();
+    lb_stats.printHeader();
+    lb_stats.printPlayerStats();
+    lb_stats.printPlayerStats();
+    lb1_stats.printPlayerStats();
+    de_stats.printPlayerStats();
+    de1_stats.printHeader();
+    de1.printPlayerStats();
+    de1_stats.printPlayerStats();
+    de2_stats.printPlayerStats();
+    dt_stats.printPlayerStats();
+    dt1_stats.printPlayerStats();
+    
+    
         }
     
     }
