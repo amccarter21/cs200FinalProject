@@ -104,8 +104,8 @@ public class Dallas_Roster {
     g2_stats.printPlayerStats();
     c_stats.printPlayerStats();
     
-    
-    d.printHeader();
+ // Player data for the Defense   
+   d.printHeader();
     cb.printInfo();
     cb1.printInfo();
     s.printInfo();
@@ -117,7 +117,8 @@ public class Dallas_Roster {
     de2.printInfo();
     dt.printInfo();
     dt1.printInfo();
-    
+
+// Player stats for the Defense   
     cb_stats.printHeader();
     cb_stats.printPlayerStats();
     cb1_stats.printPlayerStats();
