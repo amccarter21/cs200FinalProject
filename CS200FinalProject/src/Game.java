@@ -17,8 +17,10 @@ public class Game {
 	}
 	
 	public void runGame() {
-		Offense Dallas = new Offense();
-		Defense Philly = new Defense();
+		Offense DallasO = new Offense();
+		Offense PhillyO= new Offense();
+		Defense DallasD = new Defense();
+		Defense PhillyD= new Defense();
 		
 		do {
 			System.out.println("Pick a play between rush or pass");
@@ -47,25 +49,25 @@ public class Game {
 			
 			if(choice1 == 1 && compChoice == 1) {
 				System.out.println("The computer chose " + comp +" and you chose a rush! You lost yards.");
-				Philly.blitz();
+				PhillyD.blitz();
 				System.out.println("You are now on the " + gameYards + " yard line");
 				
 			}
 			if(choice1 == 1 && compChoice == 2) {
 				System.out.println("The computer chose " + comp +" and you chose a rush! You gained yards.");
-				Dallas.rushPlay();
+				DallasO.rushPlay();
 				System.out.println("You are now on the " + gameYards + " yard line");
 
 			}
 			if(choice1 == 2 && compChoice == 2) {
 				System.out.println("The computer chose " + comp +" and you chose a pass! You lost yards.");
-				Philly.passDefense();
+				PhillyD.passDefense();
 				System.out.println("You are now on the " + gameYards + " yard line");
 
 			}
 			if(choice1 == 2 && compChoice == 1) {
 				System.out.println("The computer chose " + comp +" and you chose a pass! You gained yards.");
-				Dallas.passPlay();
+				DallasO.passPlay();
 				System.out.println("You are now on the " + gameYards + " yard line");
 			}
 			if(gameYards >= 100) {
