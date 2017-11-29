@@ -1,5 +1,5 @@
 
-public class Defense {
+public class Defense implements DefensivePlays{
     int number;
     String name;
     String position;
@@ -233,7 +233,12 @@ public class Defense {
     public int setBlockedKicks( int bk){
         return this.blocked_kicks = bk;
     }
-    
+    public void blitz() {
+    	Game.gameYards = Game.gameYards -5;
+    }
+    public void passDefense() {
+    	Game.gameYards = Game.gameYards -10;
+    }
     
     String header_title_format = "%90s %n ";
     String player_title_position_format = "%30s %n";

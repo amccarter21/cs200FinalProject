@@ -3,33 +3,36 @@ import java.util.Scanner;
 
 public class Game {
 
-	public int gameYards = 50;
+	public static int gameYards = 50;
 	public String choice;
 	Scanner scanner = new Scanner(System.in);
 	boolean playing = true;
 	Integer choice1 = null;
 	int currentDown = 1;
 	boolean touchdown = false;
+	boolean hasBall = false;
 	
 	public Game() {
 		
 	}
 	
 	public void runGame() {
+		Offense Dallas = new Offense();
+		Defense Philly = new Defense();
 		
-		while(!touchdown) {
+		do {
 			System.out.println("Pick a play between rush or pass");
 			//Player
 			choice = scanner.next();
 			choice = choice.toLowerCase();
 			//Computer
 			Random rand = new Random();
-			Integer compChoice = rand.nextInt(2);
-			String comp; //= compChoice.toString();
+			Integer compChoice = rand.nextInt(2) + 1;
+			String comp = null; //= compChoice.toString();
 			if(compChoice == 1) {
 				comp = "Blitz";
 			}
-			else {
+			if(compChoice == 2){
 				comp = "Pass Defense";
 			}
 			
@@ -43,27 +46,27 @@ public class Game {
 			}
 			
 			if(choice1 == 1 && compChoice == 1) {
-				System.out.println("The computer chose" + comp +" and you chose a rush! You lost yards.");
-				gameYards = gameYards -5;
-				System.out.println("You are now on the " + gameYards + "yard line");
+				System.out.println("The computer chose " + comp +" and you chose a rush! You lost yards.");
+				Philly.blitz();
+				System.out.println("You are now on the " + gameYards + " yard line");
 				
 			}
 			if(choice1 == 1 && compChoice == 2) {
-				System.out.println("You chose to run and the computer chose pass defense! You gain yards.");
-				gameYards = gameYards +5;
-				System.out.println("You are now on the " + gameYards + "yard line");
+				System.out.println("The computer chose " + comp +" and you chose a rush! You gained yards.");
+				Dallas.rushPlay();
+				System.out.println("You are now on the " + gameYards + " yard line");
 
 			}
 			if(choice1 == 2 && compChoice == 2) {
-				System.out.println("You chose to pass and the computer chose pass defense! You lose yards.");
-				gameYards = gameYards -5;
-				System.out.println("You are now on the " + gameYards + "yard line");
+				System.out.println("The computer chose " + comp +" and you chose a pass! You lost yards.");
+				Philly.passDefense();
+				System.out.println("You are now on the " + gameYards + " yard line");
 
 			}
 			if(choice1 == 2 && compChoice == 1) {
-				System.out.println("You chose to pass and the computer chose blitz! You gain yards.");
-				gameYards = gameYards +10;
-				System.out.println("You are now on the " + gameYards + "yard line");
+				System.out.println("The computer chose " + comp +" and you chose a pass! You gained yards.");
+				Dallas.passPlay();
+				System.out.println("You are now on the " + gameYards + " yard line");
 			}
 			if(gameYards >= 100) {
 				System.out.println("You have scored a touchdown! You won the game!");
@@ -73,7 +76,7 @@ public class Game {
 				System.out.println("The defense took you back for a safety, you lose!");
 				break;
 			}
-		}
+		} while(!touchdown);
 	}
 	
 }

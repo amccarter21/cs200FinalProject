@@ -5,7 +5,7 @@
  get set methods, and print info for the player being printed
  Player data is extended from subclass Offense
 */
-public class Offense {
+public class Offense implements OffensivePlays {
   
     
     // defines the variable name, position, and team;
@@ -159,6 +159,12 @@ public class Offense {
     public int setYards(int y){
         return this.yards = y;
         
+    }
+    public void rushPlay() {
+    	Game.gameYards = Game.gameYards +5;
+    }
+    public void passPlay() {
+    	Game.gameYards = Game.gameYards +10;
     }
     
     
