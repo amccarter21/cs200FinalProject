@@ -1,6 +1,6 @@
 
 public interface DefensivePlays {
 
-	void blitz();
-	void passDefense();
+	int blitz(int yardsGained);
+	int passDefense(int yardsGained);
 }

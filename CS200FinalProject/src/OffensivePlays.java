@@ -1,6 +1,6 @@
 
 public interface OffensivePlays {
 
-	void rushPlay();
-	void passPlay();
+	int rushPlay(int yardsGained);
+	int passPlay(int yardsGained);
 }

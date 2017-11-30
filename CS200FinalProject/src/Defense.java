@@ -233,11 +233,13 @@ public class Defense implements DefensivePlays{
     public int setBlockedKicks( int bk){
         return this.blocked_kicks = bk;
     }
-    public void blitz() {
-    	Game.yardsGained = -5;
+    public int blitz(int yardsGained) {
+    	return yardsGained -5;
+//    	Game.yardsGained = -5;
     }
-    public void passDefense() {
-    	Game.yardsGained = -10;
+    public int passDefense(int yardsGained) {
+    	return yardsGained -10;
+    	//Game.yardsGained = -10;
     }
     
     String header_title_format = "%90s %n ";

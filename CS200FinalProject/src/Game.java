@@ -10,8 +10,8 @@ public class Game {
 	Integer choice1 = null;
 	int currentDown = 0;
 	public int firstDownSpot = currentSpot + 10;
-	public static int yardsGained;
-	public static int nextSpot = currentSpot + yardsGained;
+	public int yardsGained;
+	public int nextSpot = currentSpot + yardsGained;
 	boolean touchdown = false;
 	
 	public Game() {
@@ -92,30 +92,34 @@ public class Game {
 					}
 					if(choice1 == 1 && compChoice == 1) {
 						System.out.println("The computer chose " + comp +" and you chose a rush! You lost yards.");
-						PhillyD.blitz();
+						yardsGained = PhillyD.blitz(yardsGained);
+						nextSpot += yardsGained;
 						System.out.println("You are now on the " + nextSpot + " yard line");
-						//yardsGained = 0;
+						yardsGained = 0;
 						
 					}
 					if(choice1 == 1 && compChoice == 2) {
 						System.out.println("The computer chose " + comp +" and you chose a rush! You gained yards.");
-						DallasO.rushPlay();
+						yardsGained = DallasO.rushPlay(yardsGained);
+						nextSpot += yardsGained;
 						System.out.println("You are now on the " + nextSpot + " yard line");
-						//yardsGained = 0;
+						yardsGained = 0;
 		
 					}
 					if(choice1 == 2 && compChoice == 2) {
 						System.out.println("The computer chose " + comp +" and you chose a pass! You lost yards.");
-						PhillyD.passDefense();
+						yardsGained = PhillyD.passDefense(yardsGained);
+						nextSpot += yardsGained;
 						System.out.println("You are now on the " + nextSpot + " yard line");
-						//yardsGained = 0;
+						yardsGained = 0;
 		
 					}
 					if(choice1 == 2 && compChoice == 1) {
 						System.out.println("The computer chose " + comp +" and you chose a pass! You gained yards.");
-						DallasO.passPlay();
+						yardsGained = DallasO.passPlay(yardsGained);
+						nextSpot += yardsGained;
 						System.out.println("You are now on the " + nextSpot + " yard line");
-						//yardsGained = 0;
+						yardsGained = 0;
 					}
 					if(currentSpot >= 100) {
 						System.out.println("You have scored a touchdown! You won the game!");
@@ -129,6 +133,7 @@ public class Game {
 					if(nextSpot == firstDownSpot) {
 						currentSpot = nextSpot;
 						currentDown = 0;
+						firstDownSpot = currentSpot + 10;
 					}
 				} while(currentDown < 6);
 			//}
