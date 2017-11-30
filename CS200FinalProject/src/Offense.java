@@ -20,6 +20,7 @@ public class Offense implements OffensivePlays {
     String college;
     int touchdowns;
     int yards;
+    boolean hasBall = false;
     
 // OFFENSE METHOD DECLARATION//
 // This section of the code contains methods instantiating the variables combined above.
