@@ -61,6 +61,10 @@ public class Game {
 		if(DallasO.hasBall) {
 			//for(currentDown = 1; currentDown == 6; currentDown++) {
 				do {
+					if(currentDown >= 4) {
+						System.out.println("You couldn't convert on 4th down and turned the ball over.");
+						break;
+					}
 					currentDown++;
 					System.out.println("It is now " + currentDown +" down.");
 					System.out.println("Pick a play between rush or pass");
@@ -125,10 +129,6 @@ public class Game {
 					if(nextSpot == firstDownSpot) {
 						currentSpot = nextSpot;
 						currentDown = 0;
-					}
-					if(currentDown > 4) {
-						System.out.println("You couldn't convert on 4th down and turned the ball over.");
-						break;
 					}
 				} while(currentDown < 6);
 			//}
