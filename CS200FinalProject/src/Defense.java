@@ -234,10 +234,10 @@ public class Defense implements DefensivePlays{
         return this.blocked_kicks = bk;
     }
     public void blitz() {
-    	Game.gameYards = Game.gameYards -5;
+    	Game.yardsGained = Game.yardsGained -5;
     }
     public void passDefense() {
-    	Game.gameYards = Game.gameYards -10;
+    	Game.yardsGained = Game.yardsGained -10;
     }
     
     String header_title_format = "%90s %n ";
