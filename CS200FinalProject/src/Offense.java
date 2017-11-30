@@ -162,10 +162,10 @@ public class Offense implements OffensivePlays {
         
     }
     public void rushPlay() {
-    	Game.yardsGained = Game.yardsGained +5;
+    	Game.yardsGained = 5;
     }
     public void passPlay() {
-    	Game.yardsGained = Game.yardsGained +10;
+    	Game.yardsGained = 10;
     }
     
     

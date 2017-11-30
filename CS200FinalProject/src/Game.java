@@ -90,28 +90,28 @@ public class Game {
 						System.out.println("The computer chose " + comp +" and you chose a rush! You lost yards.");
 						PhillyD.blitz();
 						System.out.println("You are now on the " + nextSpot + " yard line");
-						yardsGained = 0;
+						//yardsGained = 0;
 						
 					}
 					if(choice1 == 1 && compChoice == 2) {
 						System.out.println("The computer chose " + comp +" and you chose a rush! You gained yards.");
 						DallasO.rushPlay();
 						System.out.println("You are now on the " + nextSpot + " yard line");
-						yardsGained = 0;
+						//yardsGained = 0;
 		
 					}
 					if(choice1 == 2 && compChoice == 2) {
 						System.out.println("The computer chose " + comp +" and you chose a pass! You lost yards.");
 						PhillyD.passDefense();
 						System.out.println("You are now on the " + nextSpot + " yard line");
-						yardsGained = 0;
+						//yardsGained = 0;
 		
 					}
 					if(choice1 == 2 && compChoice == 1) {
 						System.out.println("The computer chose " + comp +" and you chose a pass! You gained yards.");
 						DallasO.passPlay();
 						System.out.println("You are now on the " + nextSpot + " yard line");
-						yardsGained = 0;
+						//yardsGained = 0;
 					}
 					if(currentSpot >= 100) {
 						System.out.println("You have scored a touchdown! You won the game!");
