@@ -182,13 +182,28 @@ public class Offense implements OffensivePlays {
     	//Game.yardsGained = 10;
 		
     }
-    public void playAction() {
+    public void playAction(String team, String comp2, String opponent) {
+    	yardsGained = yardsGained +8;
+    	System.out.println("The" + team + " chose " + comp2 +" and the " + opponent + "chose pass defense! The " + team + "gained yards.");
+    	nextSpot += yardsGained;
+    	System.out.println("The" + team + " is now on the " + nextSpot + " yard line");
+		yardsGained = 0;
     	
     }
-    public void hailMary() {
+    public void hailMary(String team, String comp2, String opponent) {
+    	yardsGained = yardsGained +30;
+    	System.out.println("The" + team + " chose " + comp2 +" and the " + opponent + "chose pass defense! The " + team + "gained yards.");
+    	nextSpot += yardsGained;
+    	System.out.println("The" + team + " is now on the " + nextSpot + " yard line");
+		yardsGained = 0;
     	
     }
-    public void bootlegPass() {
+    public void bootlegPass(String team, String comp2, String opponent) {
+    	yardsGained = yardsGained +5;
+    	System.out.println("The" + team + " chose " + comp2 +" and the " + opponent + "chose pass defense! The " + team + "gained yards.");
+    	nextSpot += yardsGained;
+    	System.out.println("The" + team + " is now on the " + nextSpot + " yard line");
+		yardsGained = 0;
     	
     }
     
