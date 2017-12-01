@@ -6,12 +6,16 @@ This prints both the Dallas Cowboys and the Philadelphia Eagles
 public class GameRoster {
     
     public static void main(String[] args){
-  
-        Dallas_Roster r = new Dallas_Roster();
-        r.runDallasRoster();
-        
-        Philadelphia_Roster p = new Philadelphia_Roster();
-        p.runPhiladelphiaRoster();
+    	
+    	RunGame game = new RunGame();
+    	
+    	boolean repeat = true;
+    	  while (repeat)
+    	  {
+    	    repeat = game.mainMenu();
+    	  }
+    	   System.out.println("Program Exited");
+    	 }
+
     
     }
-}
