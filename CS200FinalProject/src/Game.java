@@ -213,11 +213,12 @@ public class Game {
 				
 							}
 							if(choice2 == 2 && compChoice2 == 1) {
-								System.out.println("The computer chose " + comp2 +" and you chose pass defense! The computer gained yards.");
+								/*System.out.println("The computer chose " + comp2 +" and you chose pass defense! The computer gained yards.");
 								yardsGained = PhillyO.rushPlay(yardsGained);
 								nextSpot += yardsGained;
 								System.out.println("The computer is now on the " + nextSpot + " yard line");
-								yardsGained = 0;
+								yardsGained = 0;*/
+								PhillyO.rushPlay();
 							}
 							if(PhillyO.currentSpot >= 100) {
 								System.out.println("The computer scored a touchdown! You lost the game!");

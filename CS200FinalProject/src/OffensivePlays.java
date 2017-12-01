@@ -1,9 +1,9 @@
 
 public interface OffensivePlays {
 
-	int rushPlay();
-	int passPlay();
-	int playAction();
-	int hailMary ();
-	int bootlegPass ();
+	public void rushPlay();
+	public void passPlay();
+	public void playAction();
+	public void hailMary();
+	public void bootlegPass();
 }
