@@ -165,16 +165,19 @@ public class Offense implements OffensivePlays {
         return this.yards = y;
         
     }
-    public void rushPlay(String team, String comp2, String team2) {
+    public void rushPlay(String team, String comp2, String opponent) {
     	yardsGained = yardsGained +5;
-    	System.out.println("The " + team + " chose " + comp2 +" and the " + team2 + "chose pass defense! The " + team + "gained yards.");
+    	System.out.println("The" + team + " chose " + comp2 +" and the " + opponent + "chose pass defense! The " + team + "gained yards.");
+    	nextSpot += yardsGained;
+    	System.out.println("The" + team + " is now on the " + nextSpot + " yard line");
+		yardsGained = 0;
     	//Game.yardsGained = 5;
     }
-    public void passPlay() {
+    public void passPlay(String team, String comp2, String opponent) {
     	yardsGained = yardsGained +10;
-    	System.out.println("The computer chose a pass play and you chose a blitz! The computer gained yards.");
+    	System.out.println("Th " + team + " chose " + comp2 +" and the " + opponent + "chose pass defense! The " + team + "gained yards.");
     	nextSpot += yardsGained;
-    	System.out.println("The computer is now on the " + nextSpot + " yard line");
+    	System.out.println("The" + team + " is now on the " + nextSpot + " yard line");
 		yardsGained = 0;
     	//Game.yardsGained = 10;
 		

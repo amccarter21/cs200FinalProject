@@ -201,7 +201,7 @@ public class Game {
 								nextSpot += yardsGained;
 								System.out.println("The computer is now on the " + nextSpot + " yard line");
 								yardsGained = 0;*/
-								PhillyO.passPlay();
+								PhillyO.passPlay("Eagles", comp2, "Cowboys");
 				
 							}
 							if(choice2 == 2 && compChoice2 == 2) {
