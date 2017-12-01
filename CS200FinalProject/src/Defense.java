@@ -1,3 +1,8 @@
+/*
+ * 			DEFENSE 
+ * This is the superclass Defense that extends 
+ */
+
 
 public class Defense implements DefensivePlays{
     int number;
@@ -238,22 +243,48 @@ public class Defense implements DefensivePlays{
     public int setBlockedKicks( int bk){
         return this.blocked_kicks = bk;
     }
-    public void blitz() {
+    
+    
+    // INTERFACE LOGIC
+    // Blitz play
+    public void blitz(String team, String comp2, String opponent) {
     	yardsGained = yardsGained -5;
-//    	Game.yardsGained = -5;
+    	System.out.println("The" + team + " chose " + comp2 +" and the " + opponent + " chose pass defense! The " + team + " lost yards.");
+    	nextSpot += yardsGained;
+    	System.out.println("The" + team + " is now on the " + nextSpot + " yard line");
+		yardsGained = 0;
     }
-    public void passDefense() {
+    // Pass Defense
+    public void passDefense(String team, String comp2, String opponent) {
     	yardsGained = yardsGained -10;
-    	//Game.yardsGained = -10;
+    	System.out.println("The" + team + " chose " + comp2 +" and the " + opponent + " chose pass defense! The " + team + " lost yards.");
+    	nextSpot += yardsGained;
+    	System.out.println("The" + team + " is now on the " + nextSpot + " yard line");
+		yardsGained = 0;
     }
-    public void zoneCoverage() {
-    	
+    // Zone Coverage
+    public void zoneCoverage(String team, String comp2, String opponent) {
+    	yardsGained = yardsGained -7;
+    	System.out.println("The" + team + " chose " + comp2 +" and the " + opponent + " chose pass defense! The " + team + " lost yards.");
+    	nextSpot += yardsGained;
+    	System.out.println("The" + team + " is now on the " + nextSpot + " yard line");
+		yardsGained = 0;
     }
-    public void manToManCoverage() {
-    	
+    // Man to Man Coverage
+    public void manToManCoverage(String team, String comp2, String opponent) {
+    	yardsGained = yardsGained -12;
+    	System.out.println("The" + team + " chose " + comp2 +" and the " + opponent + " chose pass defense! The " + team + " lost yards.");
+    	nextSpot += yardsGained;
+    	System.out.println("The" + team + " is now on the " + nextSpot + " yard line");
+		yardsGained = 0;
     }
-    public void stunts() {
-    	
+    // Stunts
+    public void stunts(String team, String comp2, String opponent) {
+    	yardsGained = yardsGained -15;
+    	System.out.println("The" + team + " chose " + comp2 +" and the " + opponent + " chose pass defense! The " + team + " lost yards.");
+    	nextSpot += yardsGained;
+    	System.out.println("The" + team + " is now on the " + nextSpot + " yard line");
+		yardsGained = 0;
     }
     
     
