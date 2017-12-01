@@ -82,7 +82,7 @@ public class Game {
 					choice = choice.toLowerCase();
 					//Computer
 					Random rand = new Random();
-					Integer compChoice = rand.nextInt(2) + 1;
+					Integer compChoice = rand.nextInt(5) + 1;
 					String comp = null;
 					if(compChoice == 1) {
 						comp = "Blitz";
@@ -90,7 +90,15 @@ public class Game {
 					if(compChoice == 2){
 						comp = "Pass Defense";
 					}
-					
+					if(compChoice == 3) {
+						comp = "Stunts";
+					}
+					if(compChoice == 4) {
+						comp = "Stunts";
+					}
+					if(compChoice == 5) {
+						comp = "Stunts";
+					}
 					switch(choice) {
 					case "rush":
 						choice1 = 1;

@@ -1,6 +1,9 @@
 
 public interface DefensivePlays {
 
-	int blitz(int yardsGained);
-	int passDefense(int yardsGained);
+	String blitz();
+	String passDefense();
+	String stunts ();
+	String zoneCoverage ();
+	String manToManCoverage ();
 }
