@@ -1,6 +1,9 @@
 
 public interface OffensivePlays {
 
-	int rushPlay(int yardsGained);
-	int passPlay(int yardsGained);
+	int rushPlay();
+	int passPlay();
+	int playAction();
+	int hailMary ();
+	int bootlegPass ();
 }
