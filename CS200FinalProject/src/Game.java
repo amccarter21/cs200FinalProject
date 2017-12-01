@@ -62,9 +62,6 @@ public class Game {
 		}
 		do {
 		if(DallasO.hasBall) {
-			//for(currentDown = 1; currentDown == 6; currentDown++) {
-			this.currentSpot = 50;
-			firstDownSpot = currentSpot + 10;
 				do {
 					if(currentDown >= 4) {
 						System.out.println("You couldn't convert on 4th down and turned the ball over. \n");
@@ -148,16 +145,13 @@ public class Game {
 		}
 				
 				if(PhillyO.hasBall) {
-					//for(currentDown = 1; currentDown == 6; currentDown++) {
-					this.currentSpot = 50;
-					firstDownSpot = currentSpot + 10;
 						do {
 							if(currentDown >= 4) {
 								System.out.println("You stopped the computer on this possesion and it is now your ball. \n");
 								currentDown = 0;
 								PhillyO.hasBall = false;
 								DallasO.hasBall = true;
-								this.currentSpot = 50;
+								DallasO.currentSpot = 50;
 								break;
 							}
 							currentDown++;
@@ -194,11 +188,12 @@ public class Game {
 								
 							}
 							if(choice2 == 1 && compChoice2 == 2) {
-								System.out.println("The computer chose " + comp2 +" and you chose a blitz! The computer gained yards.");
+								/*System.out.println("The computer chose " + comp2 +" and you chose a blitz! The computer gained yards.");
 								yardsGained = PhillyO.passPlay(yardsGained);
 								nextSpot += yardsGained;
 								System.out.println("The computer is now on the " + nextSpot + " yard line");
-								yardsGained = 0;
+								yardsGained = 0;*/
+								PhillyO.passPlay();
 				
 							}
 							if(choice2 == 2 && compChoice2 == 2) {
@@ -216,19 +211,19 @@ public class Game {
 								System.out.println("The computer is now on the " + nextSpot + " yard line");
 								yardsGained = 0;
 							}
-							if(currentSpot >= 100) {
+							if(PhillyO.currentSpot >= 100) {
 								System.out.println("The computer scored a touchdown! You lost the game!");
 								touchdown = true;
 								break;
 							}
-							if(currentSpot <= 0) {
+							if(PhillyO.currentSpot <= 0) {
 								System.out.println("Congrats! You forced a safety, you win!");
 								break;
 							}
-							if(nextSpot == firstDownSpot) {
-								currentSpot = nextSpot;
+							if(PhillyO.nextSpot == PhillyO.firstDownSpot) {
+								PhillyO.currentSpot = PhillyO.nextSpot;
 								currentDown = 0;
-								firstDownSpot = currentSpot + 10;
+								PhillyO.firstDownSpot = PhillyO.currentSpot + 10;
 							}
 						} while(currentDown < 6);
 				}

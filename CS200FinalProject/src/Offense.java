@@ -21,6 +21,10 @@ public class Offense implements OffensivePlays {
     int touchdowns;
     int yards;
     boolean hasBall = false;
+    public int currentSpot = 50;
+    public int firstDownSpot = currentSpot + 10;
+	public int yardsGained;
+	public int nextSpot = currentSpot + yardsGained;
     
 // OFFENSE METHOD DECLARATION//
 // This section of the code contains methods instantiating the variables combined above.
@@ -165,8 +169,12 @@ public class Offense implements OffensivePlays {
     	return yardsGained +5;
     	//Game.yardsGained = 5;
     }
-    public int passPlay(int yardsGained) {
-    	return yardsGained +10;
+    public String passPlay() {
+    	yardsGained = yardsGained +10;
+    	System.out.println("The computer chose a pass play and you chose a blitz! The computer gained yards.");
+    	nextSpot += yardsGained;
+    	System.out.println("The computer is now on the " + nextSpot + " yard line");
+		yardsGained = 0;
     	//Game.yardsGained = 10;
     }
     
