@@ -165,8 +165,9 @@ public class Offense implements OffensivePlays {
         return this.yards = y;
         
     }
-    public void rushPlay() {
+    public void rushPlay(String team, String comp2, String team2) {
     	yardsGained = yardsGained +5;
+    	System.out.println("The " + team + " chose " + comp2 +" and the " + team2 + "chose pass defense! The " + team + "gained yards.");
     	//Game.yardsGained = 5;
     }
     public void passPlay() {

@@ -27,6 +27,11 @@ public class Defense implements DefensivePlays{
     int fumbles_for_td;
     int blocked_kicks;
     
+    public int currentSpot = 50;
+    public int firstDownSpot = currentSpot + 10;
+	public int yardsGained;
+	public int nextSpot = currentSpot + yardsGained;
+    
     public Defense(){
         
     }
@@ -233,14 +238,24 @@ public class Defense implements DefensivePlays{
     public int setBlockedKicks( int bk){
         return this.blocked_kicks = bk;
     }
-    public int blitz(int yardsGained) {
-    	return yardsGained -5;
+    public void blitz() {
+    	yardsGained = yardsGained -5;
 //    	Game.yardsGained = -5;
     }
-    public int passDefense(int yardsGained) {
-    	return yardsGained -10;
+    public void passDefense() {
+    	yardsGained = yardsGained -10;
     	//Game.yardsGained = -10;
     }
+    public void zoneCoverage() {
+    	
+    }
+    public void manToManCoverage() {
+    	
+    }
+    public void stunts() {
+    	
+    }
+    
     
     String header_title_format = "%90s %n ";
     String player_title_position_format = "%30s %n";

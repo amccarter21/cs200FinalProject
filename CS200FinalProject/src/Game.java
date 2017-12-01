@@ -218,7 +218,7 @@ public class Game {
 								nextSpot += yardsGained;
 								System.out.println("The computer is now on the " + nextSpot + " yard line");
 								yardsGained = 0;*/
-								PhillyO.rushPlay();
+								PhillyO.rushPlay("Eagles", comp2, "Cowboys");
 							}
 							if(PhillyO.currentSpot >= 100) {
 								System.out.println("The computer scored a touchdown! You lost the game!");
