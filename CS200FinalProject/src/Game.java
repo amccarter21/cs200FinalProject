@@ -3,11 +3,13 @@ import java.util.Scanner;
 
 public class Game {
 
-	public static int currentSpot = 50;
+	public int currentSpot = 50;
 	public String choice;
+	public String defensiveChoice;
 	Scanner scanner = new Scanner(System.in);
 	boolean playing = true;
 	Integer choice1 = null;
+	Integer choice2 = null;
 	int currentDown = 0;
 	public int firstDownSpot = currentSpot + 10;
 	public int yardsGained;
@@ -50,7 +52,7 @@ public class Game {
 		}
 		
 		
-		if(coinToss == 1) {
+		if(coinToss == call1) {
 			DallasO.hasBall = true;
 			System.out.println("You chose " + call + " and it was " + result + ", you get the ball first at the 50!");
 		}
@@ -58,15 +60,22 @@ public class Game {
 			PhillyO.hasBall = true;
 			System.out.println("You chose " + call + " and it was " + result + ", the Eagles get the ball first at the 50!");
 		}
+		do {
 		if(DallasO.hasBall) {
 			//for(currentDown = 1; currentDown == 6; currentDown++) {
+			this.currentSpot = 50;
+			firstDownSpot = currentSpot + 10;
 				do {
 					if(currentDown >= 4) {
-						System.out.println("You couldn't convert on 4th down and turned the ball over.");
+						System.out.println("You couldn't convert on 4th down and turned the ball over. \n");
+						currentDown = 0;
+						DallasO.hasBall = false;
+						PhillyO.hasBall = true;
+						this.currentSpot = 50;
 						break;
 					}
 					currentDown++;
-					System.out.println("It is now " + currentDown +" down.");
+					System.out.println("It is now " + currentDown +" down for the Cowboys.");
 					System.out.println("Pick a play between rush or pass");
 					//Player
 					choice = scanner.next();
@@ -136,8 +145,93 @@ public class Game {
 						firstDownSpot = currentSpot + 10;
 					}
 				} while(currentDown < 6);
-			//}
 		}
+				
+				if(PhillyO.hasBall) {
+					//for(currentDown = 1; currentDown == 6; currentDown++) {
+					this.currentSpot = 50;
+					firstDownSpot = currentSpot + 10;
+						do {
+							if(currentDown >= 4) {
+								System.out.println("You stopped the computer on this possesion and it is now your ball. \n");
+								currentDown = 0;
+								PhillyO.hasBall = false;
+								DallasO.hasBall = true;
+								this.currentSpot = 50;
+								break;
+							}
+							currentDown++;
+							System.out.println("It is now " + currentDown +" down for the Eagles.");
+							System.out.println("Pick a play between blitz or pass defense");
+							//Player
+							defensiveChoice = scanner.next();
+							defensiveChoice = defensiveChoice.toLowerCase();
+							//Computer
+							Random rando = new Random();
+							Integer compChoice2 = rando.nextInt(2) + 1;
+							String comp2 = null;
+							if(compChoice2 == 1) {
+								comp2 = "Rush";
+							}
+							if(compChoice2 == 2){
+								comp2 = "Pass";
+							}
+							
+							switch(defensiveChoice) {
+							case "blitz":
+								choice2 = 1;
+								break;
+							case "passdefense":
+								choice2 = 2;
+								break;
+							}
+							if(choice2 == 1 && compChoice2 == 1) {
+								System.out.println("The computer chose " + comp2 +" and you chose a blitz! The computer lost yards.");
+								yardsGained = DallasD.blitz(yardsGained);
+								nextSpot += yardsGained;
+								System.out.println("The computer is now on the " + nextSpot + " yard line");
+								yardsGained = 0;
+								
+							}
+							if(choice2 == 1 && compChoice2 == 2) {
+								System.out.println("The computer chose " + comp2 +" and you chose a blitz! The computer gained yards.");
+								yardsGained = PhillyO.passPlay(yardsGained);
+								nextSpot += yardsGained;
+								System.out.println("The computer is now on the " + nextSpot + " yard line");
+								yardsGained = 0;
+				
+							}
+							if(choice2 == 2 && compChoice2 == 2) {
+								System.out.println("The computer chose " + comp2 +" and you chose pass defense! The computer lost yards.");
+								yardsGained = DallasD.passDefense(yardsGained);
+								nextSpot += yardsGained;
+								System.out.println("The computer is now on the " + nextSpot + " yard line");
+								yardsGained = 0;
+				
+							}
+							if(choice2 == 2 && compChoice2 == 1) {
+								System.out.println("The computer chose " + comp2 +" and you chose pass defense! The computer gained yards.");
+								yardsGained = PhillyO.rushPlay(yardsGained);
+								nextSpot += yardsGained;
+								System.out.println("The computer is now on the " + nextSpot + " yard line");
+								yardsGained = 0;
+							}
+							if(currentSpot >= 100) {
+								System.out.println("The computer scored a touchdown! You lost the game!");
+								touchdown = true;
+								break;
+							}
+							if(currentSpot <= 0) {
+								System.out.println("Congrats! You forced a safety, you win!");
+								break;
+							}
+							if(nextSpot == firstDownSpot) {
+								currentSpot = nextSpot;
+								currentDown = 0;
+								firstDownSpot = currentSpot + 10;
+							}
+						} while(currentDown < 6);
+				}
+		}while(!touchdown);
 	}
-	
 }

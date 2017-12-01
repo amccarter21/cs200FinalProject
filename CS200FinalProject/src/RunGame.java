@@ -9,7 +9,7 @@
 import java.util.Scanner;
 
 public class RunGame {
-	private boolean repeat;
+	public boolean repeat;
 	
 	
 	//input for the mainMenu
@@ -39,22 +39,20 @@ public class RunGame {
 	    		 +" * Austin and Jeremy Football Roster * \n"
 	    		 +" * (P)hiladelphia Roster             * \n"
 	    		 +" * (D)allas Game Roster              * \n"
-	    		 +" * (PP)lay as Philadelphia Eagles    * \n"
+	    		 +" * (PP)lay as the Dallas Cowboys     * \n"
 	    		 +" ***********************************";
 	   }
 	   
 	   // method that validates the input characters
 	   public boolean getMenuSelection(String input){
-		  
-		  repeat = true;
+		   
+		   repeat = true;
 	     input = input.toUpperCase(); // in case the value is input as a lowercase
 	  // when D is selected
 	     if (input.equals("D")){ 
 	    	 Dallas_Roster r = new Dallas_Roster();
 	         r.runDallasRoster();
 	         return true;
-	         
-	         
 	     }
 	     // when P is selected
 	     else if (input.equals("P")){
