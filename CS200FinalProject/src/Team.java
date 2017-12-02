@@ -2,16 +2,19 @@
 public class Team implements OffensivePlays, DefensivePlays {
 
 	public boolean hasBall = false;
-    protected int currentSpot = 50;
-    protected int firstDownSpot = currentSpot + 10;
-	protected int yardsGained;
-	protected int nextSpot = currentSpot + yardsGained;
+    public int currentSpot = 50;
+    public int firstDownSpot = currentSpot + 10;
+	public int yardsGained;
+	public int nextSpot = currentSpot + yardsGained;
 	
 	
 	public Team() {
 		
 	}
 	
+	public void resetStart() {
+		currentSpot = 50;
+	}
 				//INTERFACE LOGIC
 	  //OFFENSIVE PLAYS
 	// Rush Play Logic
