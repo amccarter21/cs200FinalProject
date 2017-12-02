@@ -1,4 +1,8 @@
-
+/*
+ 	A team class that uses the OffensivePlays and DefensivePlays interface.
+ 	The teams instantiated in the Game class are objects of this class
+ 	
+ */
 public class Team implements OffensivePlays, DefensivePlays {
 
 	public boolean hasBall = false;
@@ -15,9 +19,10 @@ public class Team implements OffensivePlays, DefensivePlays {
 	public void resetStart() {
 		currentSpot = 50;
 	}
-				//INTERFACE LOGIC
+				//INTERFACE LOGIC WITH OVERRIDDEN METHODS
 	  //OFFENSIVE PLAYS
 	// Rush Play Logic
+	@Override
     public void rushPlay(String team, String playChoice, String opponent, String oppPlayChoice) {
     	yardsGained = yardsGained +5;
     	nextSpot += yardsGained;
@@ -28,6 +33,7 @@ public class Team implements OffensivePlays, DefensivePlays {
     	//Game.yardsGained = 5;
     }
     // Pass Play logic
+	@Override
     public void passPlay(String team, String playChoice, String opponent, String oppPlayChoice) {
     	yardsGained = yardsGained +10;
     	nextSpot += yardsGained;
@@ -37,6 +43,7 @@ public class Team implements OffensivePlays, DefensivePlays {
 		
     }
     // Play Action Logic
+	@Override
     public void playAction(String team, String playChoice, String opponent, String oppPlayChoice) {
     	yardsGained = yardsGained +8;
     	nextSpot += yardsGained;
@@ -45,6 +52,7 @@ public class Team implements OffensivePlays, DefensivePlays {
     	
     }
     // Hail Mary Logic
+	@Override
     public void hailMary(String team, String playChoice, String opponent, String oppPlayChoice) {
     	yardsGained = yardsGained +30;
     	nextSpot += yardsGained;
@@ -53,6 +61,7 @@ public class Team implements OffensivePlays, DefensivePlays {
     	
     }
     // Bootleg Play Logic
+	@Override
     public void bootlegPass(String team, String playChoice, String opponent, String oppPlayChoice) {
     	yardsGained = yardsGained +5;
     	nextSpot += yardsGained;
@@ -63,6 +72,7 @@ public class Team implements OffensivePlays, DefensivePlays {
     
     //DEFENSIVE PLAYS
  // Blitz play
+	@Override
     public void blitz(String team, String playChoice, String opponent, String oppPlayChoice) {
     	yardsGained = yardsGained -5;
     	nextSpot += yardsGained;
@@ -70,6 +80,7 @@ public class Team implements OffensivePlays, DefensivePlays {
     	System.out.print("The " + team + " chose " + playChoice +" and the " + opponent + " chose " + oppPlayChoice + "! The " + team + " lost 5 yards and is now on the " + nextSpot + " yard line" + "\n");
     }
     // Pass Defense
+	@Override
     public void passDefense(String team, String playChoice, String opponent, String oppPlayChoice) {
     	yardsGained = yardsGained -10;
     	nextSpot += yardsGained;
@@ -77,6 +88,7 @@ public class Team implements OffensivePlays, DefensivePlays {
     	System.out.print("The " + team + " chose " + playChoice +" and the " + opponent + " chose " + oppPlayChoice + "! The " + team + " lost 10 yards and is now on the " + nextSpot + " yard line" + "\n");
     }
     // Zone Coverage
+	@Override
     public void zoneCoverage(String team, String playChoice, String opponent, String oppPlayChoice) {
     	yardsGained = yardsGained -7;
     	nextSpot += yardsGained;
@@ -85,6 +97,7 @@ public class Team implements OffensivePlays, DefensivePlays {
     	
     }
     // Man to Man Coverage
+	@Override
     public void manToManCoverage(String team, String playChoice, String opponent, String oppPlayChoice) {
     	yardsGained = yardsGained -2;
     	nextSpot += yardsGained;
@@ -93,6 +106,7 @@ public class Team implements OffensivePlays, DefensivePlays {
     	
     }
     // Stunts
+	@Override
     public void stunts(String team, String playChoice, String opponent, String oppPlayChoice) {
     	yardsGained = yardsGained -3;
     	nextSpot += yardsGained;

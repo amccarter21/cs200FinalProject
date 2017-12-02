@@ -11,7 +11,7 @@ public class GameRoster {
     
     public static void main(String[] args){
     	
-    	RunGame game = new RunGame();
+    	RunGame game = new RunGame(); //A new menu is created
     	boolean repeat = true;
     	
     	  

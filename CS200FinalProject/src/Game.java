@@ -2,6 +2,7 @@
  * 			GAME 
  * 
  * This contains the logic to run the football game
+ *  The game is a special Rivalry game between the Dallas Cowboys and the Philadelphia Eagles, thus they are the only two teams.
  */
 
 import java.util.Random;
@@ -10,8 +11,6 @@ import java.util.Scanner;
 public class Game {
 	
 	// Attribute definitions
-
-	//public int currentSpot = 50;
 	public String choice;
 	public String defensiveChoice;
 	Scanner scanner = new Scanner(System.in);
@@ -19,9 +18,6 @@ public class Game {
 	Integer choice1 = null;
 	Integer choice2 = null;
 	int currentDown = 0;
-	//public int firstDownSpot = currentSpot + 10;
-	//public int yardsGained;
-	//public int nextSpot = currentSpot + yardsGained;
 	boolean touchdown = false;
 	
 	// empty method declaration
@@ -30,10 +26,6 @@ public class Game {
 	}
 	//method declaration to run the game
 	public void runGame() {
-		/*Offense DallasO = new Offense();
-		Offense PhillyO= new Offense();
-		Defense DallasD = new Defense();
-		Defense PhillyD= new Defense();*/
 		Team Dallas = new Team();
 		Team Philly = new Team();
 		String call;
@@ -139,11 +131,6 @@ public class Game {
 					
 					//If the player chooses a rush
 					if(choice1 == 1 && compChoice == 1) {
-						/*System.out.println("The computer chose " + comp +" and you chose a rush! You lost yards.");
-						yardsGained = PhillyD.blitz(yardsGained);
-						nextSpot += yardsGained;
-						System.out.println("You are now on the " + nextSpot + " yard line");
-						yardsGained = 0;*/
 						Dallas.blitz("Cowboys", choice, "Eagles", comp);
 					}
 					if(choice1 == 1 && compChoice == 2) {
@@ -240,11 +227,12 @@ public class Game {
 						currentDown = 0;
 						Dallas.firstDownSpot = Dallas.currentSpot + 10;
 					}
-				} while(currentDown < 6);
+				} while(currentDown < 6 || !touchdown);
 		}
 				//Start a different loop for when Philly has the ball with the same logic
 				if(Philly.hasBall) {
 						do {
+							//To check if the computer is past 4th down (They didn't convert)
 							if(currentDown >= 4) {
 								System.out.println("You stopped the computer on this possesion and it is now your ball. \n");
 								currentDown = 0;
@@ -299,11 +287,6 @@ public class Game {
 									// Defines the specific offense defense pairing outcomes
 							//If the computer chooses to rush
 							if(choice2 == 1 && compChoice2 == 1) {
-								/*System.out.println("The computer chose " + comp2 +" and you chose a blitz! The computer lost yards.");
-								yardsGained = DallasD.blitz(yardsGained);
-								nextSpot += yardsGained;
-								System.out.println("The computer is now on the " + nextSpot + " yard line");
-								yardsGained = 0;*/
 								Philly.blitz("Eagles", comp2, "Cowboys", defensiveChoice);
 							}
 							if(choice2 == 2 && compChoice2 == 1) {
@@ -400,7 +383,7 @@ public class Game {
 								currentDown = 0;
 								Philly.firstDownSpot = Philly.currentSpot + 10;
 							}
-						} while(currentDown < 6);
+						} while(currentDown < 6 || !touchdown);
 				}
 		}while(!touchdown);
 	}
