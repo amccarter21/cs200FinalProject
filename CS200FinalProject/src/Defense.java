@@ -10,7 +10,7 @@
  */
 
 
-public class Defense implements DefensivePlays{
+public class Defense {
 	// Player attributes
     int number;
     String name;
@@ -40,10 +40,10 @@ public class Defense implements DefensivePlays{
     int fumbles_for_td;
     int blocked_kicks;
     
-    public int currentSpot = 50;
+    /*public int currentSpot = 50;
     public int firstDownSpot = currentSpot + 10;
 	public int yardsGained;
-	public int nextSpot = currentSpot + yardsGained;
+	public int nextSpot = currentSpot + yardsGained;*/
     
     public Defense(){
         
@@ -255,48 +255,9 @@ public class Defense implements DefensivePlays{
     }
     
     
-    // INTERFACE LOGIC
+    // INTERFACE METHODS
     
-    // Blitz play
-    public void blitz(String team, String comp2, String opponent) {
-    	yardsGained = yardsGained -5;
-    	System.out.println("The" + team + " chose " + comp2 +" and the " + opponent + " chose pass defense! The " + team + " lost yards.");
-    	nextSpot += yardsGained;
-    	System.out.println("The" + team + " is now on the " + nextSpot + " yard line");
-		yardsGained = 0;
-    }
-    // Pass Defense
-    public void passDefense(String team, String comp2, String opponent) {
-    	yardsGained = yardsGained -10;
-    	System.out.println("The" + team + " chose " + comp2 +" and the " + opponent + " chose pass defense! The " + team + " lost yards.");
-    	nextSpot += yardsGained;
-    	System.out.println("The" + team + " is now on the " + nextSpot + " yard line");
-		yardsGained = 0;
-    }
-    // Zone Coverage
-    public void zoneCoverage(String team, String comp2, String opponent) {
-    	yardsGained = yardsGained -7;
-    	System.out.println("The" + team + " chose " + comp2 +" and the " + opponent + " chose pass defense! The " + team + " lost yards.");
-    	nextSpot += yardsGained;
-    	System.out.println("The" + team + " is now on the " + nextSpot + " yard line");
-		yardsGained = 0;
-    }
-    // Man to Man Coverage
-    public void manToManCoverage(String team, String comp2, String opponent) {
-    	yardsGained = yardsGained -12;
-    	System.out.println("The" + team + " chose " + comp2 +" and the " + opponent + " chose pass defense! The " + team + " lost yards.");
-    	nextSpot += yardsGained;
-    	System.out.println("The" + team + " is now on the " + nextSpot + " yard line");
-		yardsGained = 0;
-    }
-    // Stunts
-    public void stunts(String team, String comp2, String opponent) {
-    	yardsGained = yardsGained -15;
-    	System.out.println("The" + team + " chose " + comp2 +" and the " + opponent + " chose pass defense! The " + team + " lost yards.");
-    	nextSpot += yardsGained;
-    	System.out.println("The" + team + " is now on the " + nextSpot + " yard line");
-		yardsGained = 0;
-    }
+    
     
     // 					PRINT INFO
     // Formating for the output including both headers and the data

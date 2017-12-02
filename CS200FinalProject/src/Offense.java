@@ -8,7 +8,7 @@
  * Method declaration for the interface exists in public void format to meet the 
  * requirements of java interfacing
  */
-public class Offense implements OffensivePlays {
+public class Offense {
   
     
     // defines the variable name, position, and team;
@@ -23,11 +23,12 @@ public class Offense implements OffensivePlays {
     String college;
     int touchdowns;
     int yards;
-    boolean hasBall = false;
+    
+    /*boolean hasBall = false;
     public int currentSpot = 50;
     public int firstDownSpot = currentSpot + 10;
 	public int yardsGained;
-	public int nextSpot = currentSpot + yardsGained;
+	public int nextSpot = currentSpot + yardsGained;*/
     
 /*		OFFENSE METHOD DECLARATION
 * This section of the code contains methods instantiating the variables combined above.
@@ -37,7 +38,6 @@ public class Offense implements OffensivePlays {
     
 // blank constructor
    public Offense() {
-       
    }
    
    public Offense(String name_){
@@ -169,53 +169,9 @@ public class Offense implements OffensivePlays {
         
     }
     
-    // 		INTERFACE LOGIC
-    // Rush Play Logic
-    public void rushPlay(String team, String comp2, String opponent) {
-    	yardsGained = yardsGained +5;
-    	System.out.println("The" + team + " chose " + comp2 +" and the " + opponent + "chose pass defense! The " + team + "gained yards.");
-    	nextSpot += yardsGained;
-    	System.out.println("The" + team + " is now on the " + nextSpot + " yard line");
-		yardsGained = 0;
-    	//Game.yardsGained = 5;
-    }
-    // Pass Play logic
-    public void passPlay(String team, String comp2, String opponent) {
-    	yardsGained = yardsGained +10;
-    	System.out.println("Th " + team + " chose " + comp2 +" and the " + opponent + "chose pass defense! The " + team + "gained yards.");
-    	nextSpot += yardsGained;
-    	System.out.println("The" + team + " is now on the " + nextSpot + " yard line");
-		yardsGained = 0;
-    	//Game.yardsGained = 10;
-		
-    }
-    // Play Action Logic
-    public void playAction(String team, String comp2, String opponent) {
-    	yardsGained = yardsGained +8;
-    	System.out.println("The" + team + " chose " + comp2 +" and the " + opponent + "chose pass defense! The " + team + "gained yards.");
-    	nextSpot += yardsGained;
-    	System.out.println("The" + team + " is now on the " + nextSpot + " yard line");
-		yardsGained = 0;
-    	
-    }
-    // Hail Mary Logic
-    public void hailMary(String team, String comp2, String opponent) {
-    	yardsGained = yardsGained +30;
-    	System.out.println("The" + team + " chose " + comp2 +" and the " + opponent + "chose pass defense! The " + team + "gained yards.");
-    	nextSpot += yardsGained;
-    	System.out.println("The" + team + " is now on the " + nextSpot + " yard line");
-		yardsGained = 0;
-    	
-    }
-    // Bootleg Play Logic
-    public void bootlegPass(String team, String comp2, String opponent) {
-    	yardsGained = yardsGained +5;
-    	System.out.println("The" + team + " chose " + comp2 +" and the " + opponent + "chose pass defense! The " + team + "gained yards.");
-    	nextSpot += yardsGained;
-    	System.out.println("The" + team + " is now on the " + nextSpot + " yard line");
-		yardsGained = 0;
-    	
-    }
+    // 		INTERFACE METHODS
+    
+    
     
     
     

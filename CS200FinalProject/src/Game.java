@@ -11,7 +11,7 @@ public class Game {
 	
 	// Attribute definitions
 
-	public int currentSpot = 50;
+	//public int currentSpot = 50;
 	public String choice;
 	public String defensiveChoice;
 	Scanner scanner = new Scanner(System.in);
@@ -19,12 +19,12 @@ public class Game {
 	Integer choice1 = null;
 	Integer choice2 = null;
 	int currentDown = 0;
-	public int firstDownSpot = currentSpot + 10;
-	public int yardsGained;
-	public int nextSpot = currentSpot + yardsGained;
+	//public int firstDownSpot = currentSpot + 10;
+	//public int yardsGained;
+	//public int nextSpot = currentSpot + yardsGained;
 	boolean touchdown = false;
 	
-	// empty method decaration
+	// empty method declaration
 	public Game() {
 		
 	}
@@ -34,6 +34,8 @@ public class Game {
 		Offense PhillyO= new Offense();
 		Defense DallasD = new Defense();
 		Defense PhillyD= new Defense();
+		Team Dallas = new Team();
+		Team Philly = new Team();
 		String call;
 		Integer call1 = null;
 		Scanner beginning = new Scanner(System.in);
@@ -63,23 +65,23 @@ public class Game {
 		
 		
 		if(coinToss == call1) {
-			DallasO.hasBall = true;
+			Dallas.hasBall = true;
 			System.out.println("You chose " + call + " and it was " + result + ", you get the ball first at the 50!");
 		}
 		else {
-			PhillyO.hasBall = true;
+			Philly.hasBall = true;
 			System.out.println("You chose " + call + " and it was " + result + ", the Eagles get the ball first at the 50!");
 		}
 		do {
-		if(DallasO.hasBall) {
+		if(Dallas.hasBall) {
 				do {
 					if(currentDown >= 4) {
 						System.out.println("You couldn't convert on 4th down and turned the ball over. \n");
 						currentDown = 0;
-						DallasO.hasBall = false;
-						PhillyO.hasBall = true;
-						this.currentSpot = 50;
-						break;
+						Philly.currentSpot = 50;
+						Dallas.hasBall = false;
+						Philly.hasBall = true;
+						//break;
 					}
 					currentDown++;
 					System.out.println("It is now " + currentDown +" down for the Cowboys.");
@@ -100,10 +102,10 @@ public class Game {
 						comp = "Pass Defense";
 					}
 					if(compChoice == 3) {
-						comp = "Stunts";
+						comp = "Zone Coverage";
 					}
 					if(compChoice == 4) {
-						comp = "Stunts";
+						comp = "Man to Man Coverage";
 					}
 					if(compChoice == 5) {
 						comp = "Stunts";
@@ -111,68 +113,72 @@ public class Game {
 					switch(choice) {
 					case "rush":
 						choice1 = 1;
-						break;
+						//break;
 					case "pass":
 						choice1 = 2;
-						break;
+						//break;
 					}
 					if(choice1 == 1 && compChoice == 1) {
-						System.out.println("The computer chose " + comp +" and you chose a rush! You lost yards.");
+						/*System.out.println("The computer chose " + comp +" and you chose a rush! You lost yards.");
 						yardsGained = PhillyD.blitz(yardsGained);
 						nextSpot += yardsGained;
 						System.out.println("You are now on the " + nextSpot + " yard line");
-						yardsGained = 0;
+						yardsGained = 0;*/
+						Dallas.blitz("Cowboys", choice, "Eagles", comp);
 						
 					}
 					if(choice1 == 1 && compChoice == 2) {
-						System.out.println("The computer chose " + comp +" and you chose a rush! You gained yards.");
+						/*System.out.println("The computer chose " + comp +" and you chose a rush! You gained yards.");
 						yardsGained = DallasO.rushPlay(yardsGained);
 						nextSpot += yardsGained;
 						System.out.println("You are now on the " + nextSpot + " yard line");
-						yardsGained = 0;
+						yardsGained = 0;*/
+						Dallas.rushPlay("Cowboys", choice, "Eagles", comp);
 		
 					}
 					if(choice1 == 2 && compChoice == 2) {
-						System.out.println("The computer chose " + comp +" and you chose a pass! You lost yards.");
+						/*System.out.println("The computer chose " + comp +" and you chose a pass! You lost yards.");
 						yardsGained = PhillyD.passDefense(yardsGained);
 						nextSpot += yardsGained;
 						System.out.println("You are now on the " + nextSpot + " yard line");
-						yardsGained = 0;
+						yardsGained = 0;*/
+						Dallas.passDefense("Cowboys", choice, "Eagles", comp);
 		
 					}
 					if(choice1 == 2 && compChoice == 1) {
-						System.out.println("The computer chose " + comp +" and you chose a pass! You gained yards.");
+						/*System.out.println("The computer chose " + comp +" and you chose a pass! You gained yards.");
 						yardsGained = DallasO.passPlay(yardsGained);
 						nextSpot += yardsGained;
 						System.out.println("You are now on the " + nextSpot + " yard line");
-						yardsGained = 0;
+						yardsGained = 0;*/
+						Dallas.passPlay("Cowboys", choice, "Eagles", comp);
 					}
-					if(currentSpot >= 100) {
+					if(Dallas.currentSpot >= 100) {
 						System.out.println("You have scored a touchdown! You won the game!");
 						touchdown = true;
 						break;
 					}
-					if(currentSpot <= 0) {
+					if(Dallas.currentSpot <= 0) {
 						System.out.println("The defense took you back for a safety, you lose!");
 						break;
 					}
-					if(nextSpot == firstDownSpot) {
-						currentSpot = nextSpot;
+					if(Dallas.nextSpot >= Dallas.firstDownSpot) {
+						Dallas.currentSpot = Dallas.nextSpot;
 						currentDown = 0;
-						firstDownSpot = currentSpot + 10;
+						Dallas.firstDownSpot = Dallas.currentSpot + 10;
 					}
-				} while(currentDown < 6);
+				} while(currentDown < 6 || !touchdown);
 		}
 				
-				if(PhillyO.hasBall) {
+				if(Philly.hasBall) {
 						do {
 							if(currentDown >= 4) {
 								System.out.println("You stopped the computer on this possesion and it is now your ball. \n");
 								currentDown = 0;
-								PhillyO.hasBall = false;
-								DallasO.hasBall = true;
-								DallasO.currentSpot = 50;
-								break;
+								Dallas.currentSpot = 50;
+								Philly.hasBall = false;
+								Dallas.hasBall = true;
+								//break;
 							}
 							currentDown++;
 							System.out.println("It is now " + currentDown +" down for the Eagles.");
@@ -203,11 +209,12 @@ public class Game {
 							// Defines the specific offense defense pairing outcomes
 							
 							if(choice2 == 1 && compChoice2 == 1) {
-								System.out.println("The computer chose " + comp2 +" and you chose a blitz! The computer lost yards.");
+								/*System.out.println("The computer chose " + comp2 +" and you chose a blitz! The computer lost yards.");
 								yardsGained = DallasD.blitz(yardsGained);
 								nextSpot += yardsGained;
 								System.out.println("The computer is now on the " + nextSpot + " yard line");
-								yardsGained = 0;
+								yardsGained = 0;*/
+								Philly.blitz("Eagles", comp2, "Cowboys", defensiveChoice);
 								
 							}
 							if(choice2 == 1 && compChoice2 == 2) {
@@ -216,15 +223,16 @@ public class Game {
 								nextSpot += yardsGained;
 								System.out.println("The computer is now on the " + nextSpot + " yard line");
 								yardsGained = 0;*/
-								PhillyO.passPlay("Eagles", comp2, "Cowboys");
+								Philly.passPlay("Eagles", comp2, "Cowboys", defensiveChoice);
 				
 							}
 							if(choice2 == 2 && compChoice2 == 2) {
-								System.out.println("The computer chose " + comp2 +" and you chose pass defense! The computer lost yards.");
+								/*System.out.println("The computer chose " + comp2 +" and you chose pass defense! The computer lost yards.");
 								yardsGained = DallasD.passDefense(yardsGained);
 								nextSpot += yardsGained;
 								System.out.println("The computer is now on the " + nextSpot + " yard line");
-								yardsGained = 0;
+								yardsGained = 0;*/
+								Philly.passDefense("Eagles", comp2, "Cowboys", defensiveChoice);
 				
 							}
 							if(choice2 == 2 && compChoice2 == 1) {
@@ -233,23 +241,23 @@ public class Game {
 								nextSpot += yardsGained;
 								System.out.println("The computer is now on the " + nextSpot + " yard line");
 								yardsGained = 0;*/
-								PhillyO.rushPlay("Eagles", comp2, "Cowboys");
+								Philly.rushPlay("Eagles", comp2, "Cowboys", defensiveChoice);
 							}
-							if(PhillyO.currentSpot >= 100) {
+							if(Philly.currentSpot >= 100) {
 								System.out.println("The computer scored a touchdown! You lost the game!");
 								touchdown = true;
 								break;
 							}
-							if(PhillyO.currentSpot <= 0) {
+							if(Philly.currentSpot <= 0) {
 								System.out.println("Congrats! You forced a safety, you win!");
 								break;
 							}
-							if(PhillyO.nextSpot == PhillyO.firstDownSpot) {
-								PhillyO.currentSpot = PhillyO.nextSpot;
+							if(Philly.nextSpot >= Philly.firstDownSpot) {
+								Philly.currentSpot = Philly.nextSpot;
 								currentDown = 0;
-								PhillyO.firstDownSpot = PhillyO.currentSpot + 10;
+								Philly.firstDownSpot = Philly.currentSpot + 10;
 							}
-						} while(currentDown < 6);
+						} while(currentDown < 6 || !touchdown);
 				}
 		}while(!touchdown);
 	}
