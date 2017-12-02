@@ -30,10 +30,10 @@ public class Game {
 	}
 	//method declaration to run the game
 	public void runGame() {
-		Offense DallasO = new Offense();
+		/*Offense DallasO = new Offense();
 		Offense PhillyO= new Offense();
 		Defense DallasD = new Defense();
-		Defense PhillyD= new Defense();
+		Defense PhillyD= new Defense();*/
 		Team Dallas = new Team();
 		Team Philly = new Team();
 		String call;
