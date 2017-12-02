@@ -211,13 +211,13 @@ public class Game {
 					}
 					
 					//Touchdown Checker
-					if(Dallas.currentSpot >= 100) {
+					if(Dallas.nextSpot >= 100) {
 						System.out.println("You have scored a touchdown! You won the game!");
 						touchdown = true;
 						break;
 					}
 					//Safety Checker
-					if(Dallas.currentSpot <= 0) {
+					if(Dallas.nextSpot <= 0) {
 						System.out.println("The defense took you back for a safety, you lose!");
 						break;
 					}
@@ -367,13 +367,13 @@ public class Game {
 							}
 							
 							//Touchdown Checker
-							if(Philly.currentSpot >= 100) {
+							if(Philly.nextSpot >= 100) {
 								System.out.println("The computer scored a touchdown! You lost the game!");
 								touchdown = true;
 								break;
 							}
 							//Safety Checker
-							if(Philly.currentSpot <= 0) {
+							if(Philly.nextSpot <= 0) {
 								System.out.println("Congrats! You forced a safety, you win!");
 								break;
 							}
