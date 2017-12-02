@@ -1,10 +1,13 @@
 /*
-                   OFFENSE PLAYER CLASS
- 
- This class contains the variable declaration, instantiation, 
- get set methods, and print info for the player being printed
- Player data is extended from subclass Offense
-*/
+ * 			OFFENSE
+ * This is the superclass Offense that extends to the subclass of 
+ * Offensive Players . Within this class is the logic for the print info for the player
+ * and the associated headers. This class also implements the DefensivePlays interface
+ * The logic for the methods brought over from that interface include the logic
+ * for the plays available to the player/computer when it is their turn.
+ * Method declaration for the interface exists in public void format to meet the 
+ * requirements of java interfacing
+ */
 public class Offense implements OffensivePlays {
   
     
@@ -26,11 +29,11 @@ public class Offense implements OffensivePlays {
 	public int yardsGained;
 	public int nextSpot = currentSpot + yardsGained;
     
-// OFFENSE METHOD DECLARATION//
-// This section of the code contains methods instantiating the variables combined above.
-// I am expecting to use multiple scenarios of the Offense to display player data, so 
-//I have several methods. The first being a blank constructor. The others being a calling
-// card type output, player physical data, and lastly current season data
+/*		OFFENSE METHOD DECLARATION
+* This section of the code contains methods instantiating the variables combined above.
+* I am expecting to use multiple scenarios of the Offense to display player data, so 
+* have several methods. The first being a blank constructor. The others being a calling
+* card type output, player physical data, and lastly current season data*/
     
 // blank constructor
    public Offense() {
@@ -165,6 +168,9 @@ public class Offense implements OffensivePlays {
         return this.yards = y;
         
     }
+    
+    // 		INTERFACE LOGIC
+    // Rush Play Logic
     public void rushPlay(String team, String comp2, String opponent) {
     	yardsGained = yardsGained +5;
     	System.out.println("The" + team + " chose " + comp2 +" and the " + opponent + "chose pass defense! The " + team + "gained yards.");
@@ -173,6 +179,7 @@ public class Offense implements OffensivePlays {
 		yardsGained = 0;
     	//Game.yardsGained = 5;
     }
+    // Pass Play logic
     public void passPlay(String team, String comp2, String opponent) {
     	yardsGained = yardsGained +10;
     	System.out.println("Th " + team + " chose " + comp2 +" and the " + opponent + "chose pass defense! The " + team + "gained yards.");
@@ -182,6 +189,7 @@ public class Offense implements OffensivePlays {
     	//Game.yardsGained = 10;
 		
     }
+    // Play Action Logic
     public void playAction(String team, String comp2, String opponent) {
     	yardsGained = yardsGained +8;
     	System.out.println("The" + team + " chose " + comp2 +" and the " + opponent + "chose pass defense! The " + team + "gained yards.");
@@ -190,6 +198,7 @@ public class Offense implements OffensivePlays {
 		yardsGained = 0;
     	
     }
+    // Hail Mary Logic
     public void hailMary(String team, String comp2, String opponent) {
     	yardsGained = yardsGained +30;
     	System.out.println("The" + team + " chose " + comp2 +" and the " + opponent + "chose pass defense! The " + team + "gained yards.");
@@ -198,6 +207,7 @@ public class Offense implements OffensivePlays {
 		yardsGained = 0;
     	
     }
+    // Bootleg Play Logic
     public void bootlegPass(String team, String comp2, String opponent) {
     	yardsGained = yardsGained +5;
     	System.out.println("The" + team + " chose " + comp2 +" and the " + opponent + "chose pass defense! The " + team + "gained yards.");
@@ -209,12 +219,12 @@ public class Offense implements OffensivePlays {
     
     
     
-// PRINT INFO OF THE FOOTBALL DATA
+// 				PRINT INFO 
+ // Formating for the output including both headers and the data
     String header_title_format = "%90s %n ";
     String player_title_position_format = "%30s %n";
-    
     String player_data_format  = "%10s %23s %15s %15s %15s %10s %15s %20s \n";
-    // This included the header that prints once at the beginning of running the roster
+
     public void printHeader(){
         System.out.format(header_title_format,"Dallas Cowboys 2017 Offense");
         System.out.print("\n");
@@ -227,12 +237,12 @@ public class Offense implements OffensivePlays {
         System.out.print("\n");
         System.out.format(player_data_format, "Number", "Name", "Position", "Height", "Weight", "Age", "Seasons", "College" );
     }
-    // prints non stats data of the player
+    
     public void printPlayerInfo(){
         System.out.format(player_data_format, this.number, this.name, this.position, this.height, this.weight, this.age, this.experience, this.college );
 
     }
-    // prints the players current season data
+    
     public void printPlayerStats(){
         System.out.format(header_title_format, "Offense Player Stats");
         String line_format = "%5s %5s %5s %5s %5s %5s \n";

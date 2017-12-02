@@ -1,7 +1,7 @@
 /*
  * 			RUN GAME MEHTOD
  *	This is logic for running the menu. It takes input from the
- *	user and outputs either the Dallas roster, philadelphia roster, 
+ *	user and outputs either the Dallas roster, Philadelphia roster, 
  *  or the game.
  */
 
@@ -33,10 +33,11 @@ public class RunGame {
 	     
 	     return this.repeat;
 	   }
-	   // prints the menu 
+	   
+	// 		MENU Logic
 	   public String menuString(){
 	     return " *************************************** \n"
-	    		 +" * Austin and Jeremy Football Roster * \n"
+	    		 +" * Dallas Cowboys vs Philadelphia Eagles * \n"
 	    		 +" * (P)hiladelphia Roster             * \n"
 	    		 +" * (D)allas Game Roster              * \n"
 	    		 +" * (PP)lay as the Dallas Cowboys     * \n"
@@ -47,7 +48,7 @@ public class RunGame {
 	   public boolean getMenuSelection(String input){
 		   
 		   repeat = true;
-	     input = input.toUpperCase(); // in case the value is input as a lowercase
+	     input = input.toUpperCase(); // in case the value is input as a lower case
 	  // when D is selected
 	     if (input.equals("D")){ 
 	    	 Dallas_Roster r = new Dallas_Roster();

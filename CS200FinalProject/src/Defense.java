@@ -1,10 +1,17 @@
 /*
  * 			DEFENSE 
- * This is the superclass Defense that extends 
+ * This is the superclass Defense that extends to the subclass of defensive 
+ * players. Within this class is the logic for the print info for the player
+ * and the associated headers. This class also implements the DefensivePlays interface
+ * The logic for the methods brought over from that interface inlcude the logic
+ * for the plays avaiable to the player/computer when it is their turn.
+ * Method declaration for the interface exists in public void format to meet the 
+ * requirements of java interfacing
  */
 
 
 public class Defense implements DefensivePlays{
+	// Player attributes
     int number;
     String name;
     String position;
@@ -17,6 +24,7 @@ public class Defense implements DefensivePlays{
     int touchdowns;
     int yards;
     
+    // Player stats attributes
     int tackles;
     int assisted_tackles;
     int sacks;
@@ -72,7 +80,8 @@ public class Defense implements DefensivePlays{
     }
     
     // GET SET DATA FOR ALL ATTRIBUTES OF DEFENSE
-        // GET SET DATA FOR PLAYER DATA
+        
+    // GET SET DATA FOR PLAYER DATA
      public int getNumber(){
         return number;
     }
@@ -144,8 +153,9 @@ public class Defense implements DefensivePlays{
         return this.college = college_;
         
     }
+            
+    // GET SET DATA FOR PLAYER STATS
     
-        // GET SET DATA FOR PLAYER STATS
     public int getTackles(){
         return tackles;
     }
@@ -246,6 +256,7 @@ public class Defense implements DefensivePlays{
     
     
     // INTERFACE LOGIC
+    
     // Blitz play
     public void blitz(String team, String comp2, String opponent) {
     	yardsGained = yardsGained -5;
@@ -287,27 +298,31 @@ public class Defense implements DefensivePlays{
 		yardsGained = 0;
     }
     
-    
+    // 					PRINT INFO
+    // Formating for the output including both headers and the data
     String header_title_format = "%90s %n ";
     String player_title_position_format = "%30s %n";
     String player_stats_header = "%23s, %10s %10s %10s %10s %10s %10s %10s %10s %10s %10s %10s %10s %10s %10s %n";
     String player_data_format  = "%10s %23s %15s %15s %15s %10s %15s %20s \n";
     
-    // This included the header that prints once at the beginning of running the roster
+    // Method declaration for print statements of both the header and player data/stats.
+    // Separate header methods exist to meet the needs of both the Dallas Cowboys and Philadelphia Eagles.
+    
+    // Dallas Defense Header
     public void printHeader(){
         System.out.print("\n");
         System.out.format(header_title_format,"Dallas Cowboys 2017 Defense");
         System.out.print("\n");
         System.out.format(player_data_format, "Number", "Name", "Position", "Height", "Weight", "Age", "Seasons", "College" );
     }
-    
+    // Philly Defense Header
     public void printPhillyHeader(){
         System.out.print("\n \n");
         System.out.format(header_title_format,"Philadelphia Eagles 2017 Defense");
         System.out.print("\n");
         System.out.format(player_data_format, "Number", "Name", "Position", "Height", "Weight", "Age", "Seasons", "College" );
     }
-    
+
      public void printPlayerInfo(){
         System.out.format(player_data_format, this.number, this.name, this.position, this.height, this.weight, this.age, this.experience, this.college );
 
@@ -316,7 +331,6 @@ public class Defense implements DefensivePlays{
          
          System.out.format(player_stats_header, "Name", "SOLO", "AST", "TOT", "SACK", "YDSL", "TLOSS", "PD", "INT", "YDS", "LONG", "TD", "FF", "REC", "TD", "BK");
      }
-     
      public void printPlayerStats(){
          
          System.out.format(player_stats_header, this.name,

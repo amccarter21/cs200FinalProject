@@ -1,7 +1,15 @@
+/*
+ * 			GAME 
+ * 
+ * This contains the logic to run the football game
+ */
+
 import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
+	
+	// Attribute definitions
 
 	public int currentSpot = 50;
 	public String choice;
@@ -16,10 +24,11 @@ public class Game {
 	public int nextSpot = currentSpot + yardsGained;
 	boolean touchdown = false;
 	
+	// empty method decaration
 	public Game() {
 		
 	}
-	
+	//method declaration to run the game
 	public void runGame() {
 		Offense DallasO = new Offense();
 		Offense PhillyO= new Offense();
@@ -29,6 +38,7 @@ public class Game {
 		Integer call1 = null;
 		Scanner beginning = new Scanner(System.in);
 		
+		// Coin toss
 		Random coin = new Random();
 		Integer coinToss = coin.nextInt(2) + 1;
 		String result = coinToss.toString();
@@ -74,9 +84,11 @@ public class Game {
 					currentDown++;
 					System.out.println("It is now " + currentDown +" down for the Cowboys.");
 					System.out.println("Pick a play between rush or pass");
+					
 					//Player
 					choice = scanner.next();
 					choice = choice.toLowerCase();
+					
 					//Computer
 					Random rand = new Random();
 					Integer compChoice = rand.nextInt(5) + 1;
@@ -187,6 +199,9 @@ public class Game {
 								choice2 = 2;
 								break;
 							}
+							
+							// Defines the specific offense defense pairing outcomes
+							
 							if(choice2 == 1 && compChoice2 == 1) {
 								System.out.println("The computer chose " + comp2 +" and you chose a blitz! The computer lost yards.");
 								yardsGained = DallasD.blitz(yardsGained);

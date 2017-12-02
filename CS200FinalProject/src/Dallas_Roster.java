@@ -1,7 +1,7 @@
 /*
-                   ENTIRE DALLAS ROSTER CLASS                                                        
+                   DALLAS ROSTER CLASS                                                        
  
- This class contains all of the hardcoded player data for
+ This class contains all of the hard coded player data for
  both the offense and defense of the Dallas Cowboys.
  This also has the logic for printing all player data through 
  runDallasRoster method
